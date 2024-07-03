@@ -1,0 +1,5 @@
+
+¦csharpsquid:S1210)"\When implementing IComparable<T>, you should also override Equals, ==, !=, <, <=, >, and >=.(ΕΙ†8¥ϊω¦‡2J$12f3a719-f8ec-4b63-919d-bbf62b1efba9
+csharpsquid:S1104	"DMake this field 'private' and encapsulate it in a 'public' property.(Λ·ξ8ε½‘‚†2J$50a79762-5660-46c7-aceb-3cb8ce23e5bf
+csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(²—μ_8τττ ‡2J$ed23f7d8-8fd3-40bf-8a3f-54708085015f
+csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(¬™Υ΅8©ζω¦‡2J$a518eec8-7124-4623-9eae-d81ba2c703f8
