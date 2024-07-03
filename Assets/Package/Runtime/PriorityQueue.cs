@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-namespace Script
+namespace Notask.AnimationScheduler.Package.Runtime
 {
-    [Serializable]
     public class PriorityQueue<TElement>
     {
-        [SerializeField] private List<TElement> _heap;
+        private List<TElement> _heap;
         private IComparer<TElement> _comparer;
 
         private int InternalNode => (int)Math.Floor(Count / 2.0) - 1;

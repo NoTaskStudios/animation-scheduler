@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Notask.AnimationScheduler.Package.Runtime;
 using UnityEngine;
 
 namespace Script
