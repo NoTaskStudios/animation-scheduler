@@ -1,0 +1,16 @@
+﻿{
+  "name": "com.notask.animation-scheduler",
+  "version": "1.1.0",
+  "displayName": "Animation Scheduler",
+  "description": "This is an example package",
+  "unity": "2022.3",
+  "changelogUrl": "https://github.com/NoTaskStudios/animation-scheduler/releases",
+  "keywords": [
+    "Animation",
+    "Scheduler"
+  ],
+  "author": {
+    "name": "Mikael Cavalcanti da Silva",
+    "email": "mikaelmigs2@gmail.com"
+  }
+}
