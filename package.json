@@ -7,7 +7,9 @@
   "changelogUrl": "https://github.com/NoTaskStudios/animation-scheduler/releases",
   "keywords": [
     "Animation",
-    "Scheduler"
+    "Scheduler",
+    "Heap",
+    "Priority Queue"
   ],
   "author": {
     "name": "Mikael Cavalcanti da Silva",
