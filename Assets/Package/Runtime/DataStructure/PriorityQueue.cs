@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Notask.AnimationScheduler.Package.Runtime
+namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
 {
     public class PriorityQueue<TElement>
     {
@@ -101,7 +101,7 @@ namespace Notask.AnimationScheduler.Package.Runtime
             BottomUp();
             return result;
         }
-        
+
         /// <summary>
         /// Returns the element at the front of the queue without removing it.
         /// </summary>
