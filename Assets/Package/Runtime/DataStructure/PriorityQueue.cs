@@ -5,7 +5,7 @@ namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
 {
     public class PriorityQueue<TElement>
     {
-        private List<TElement> _heap;
+        private IList<TElement> _heap;
         private IComparer<TElement> _comparer;
 
         private int InternalNode => (int)Math.Floor(Count / 2.0) - 1;
