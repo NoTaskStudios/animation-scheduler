@@ -5,18 +5,25 @@ namespace Notask.AnimationScheduler.Package.Runtime.Helpers
     public class WaitForAnimationToFinish : CustomYieldInstruction
     {
         private readonly string _stateAnimName;
-
         private readonly Animator _animator;
         private readonly int _layerIndex;
 
-        private AnimatorStateInfo StateInfo => _animator.GetCurrentAnimatorStateInfo(_layerIndex);
+        private bool _hasStarted;
 
-        private bool CorrectAnimationIsPlaying => StateInfo.IsName(_stateAnimName);
+        public override bool keepWaiting
+        {
+            get
+            {
+                var stateInfo = _animator.GetCurrentAnimatorStateInfo(_layerIndex);
+                var correctAnimationIsPlaying = stateInfo.IsName(_stateAnimName);
+                var animationIsDone = stateInfo.normalizedTime >= 1;
 
-        private bool AnimationIsDone => StateInfo.normalizedTime >= 1;
-
-        public override bool keepWaiting => CorrectAnimationIsPlaying && !AnimationIsDone;
-
+                if (_hasStarted) return correctAnimationIsPlaying && !animationIsDone;
+                
+                if (correctAnimationIsPlaying) _hasStarted = true;
+                return true;
+            }
+        }
 
         /// <summary>
         /// Creates a new yield-instruction
