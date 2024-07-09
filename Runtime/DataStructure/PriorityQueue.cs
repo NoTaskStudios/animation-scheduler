@@ -5,8 +5,8 @@ namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
 {
     public class PriorityQueue<TElement>
     {
-        private IList<TElement> _heap;
-        private IComparer<TElement> _comparer;
+        private readonly IList<TElement> _heap;
+        private readonly IComparer<TElement> _comparer;
 
         private int InternalNode => (int)Math.Floor(Count / 2.0) - 1;
 
@@ -114,13 +114,44 @@ namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
 
             return _heap[0];
         }
+        
+        /// <summary>
+        /// Removes the element at the given index.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public TElement RemoveAt(int index)
+        {
+            if(index < 0 || index >= Count)
+                throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
+
+            var result = _heap[index];
+            _heap[index] = _heap[Count - 1];
+            _heap.RemoveAt(Count - 1);
+            BottomUp();
+            return result;
+        }
+        
+        /// <summary>
+        /// Removes the given element from the queue.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public bool Remove(TElement element)
+        {
+            var index = _heap.IndexOf(element);
+            if (index == -1) return false;
+            RemoveAt(index);
+            return true;
+        }
     }
 
     public class MaxHeapComparer<T> : IComparer<T> where T : IComparable<T>
     {
         public int Compare(T x, T y)
         {
-            if (Equals(x, null) || Equals(y, null)) throw new ArgumentNullException();
+            if (Equals(x, null) || Equals(y, null)) throw new ArgumentNullException(nameof(x), "is null");
 
             return y.CompareTo(x);
         }
