@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
 {
@@ -114,7 +115,7 @@ namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
 
             return _heap[0];
         }
-        
+
         /// <summary>
         /// Removes the element at the given index.
         /// </summary>
@@ -123,7 +124,7 @@ namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public TElement RemoveAt(int index)
         {
-            if(index < 0 || index >= Count)
+            if (index < 0 || index >= Count)
                 throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
 
             var result = _heap[index];
@@ -132,7 +133,7 @@ namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
             BottomUp();
             return result;
         }
-        
+
         /// <summary>
         /// Removes the given element from the queue.
         /// </summary>
@@ -144,6 +145,26 @@ namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
             if (index == -1) return false;
             RemoveAt(index);
             return true;
+        }
+
+        /// <summary>
+        /// Returns the string representation of the queue.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if (Count == 0) return "Heap: [Empty]";
+
+            var stringBuild = new StringBuilder();
+            stringBuild.Append("Heap: [");
+            for (var i = 0; i < Count - 1; i++)
+            {
+                stringBuild.Append(_heap[i] + " ");
+            }
+
+            stringBuild.Append(_heap[^1] + "]");
+
+            return stringBuild.ToString();
         }
     }
 
