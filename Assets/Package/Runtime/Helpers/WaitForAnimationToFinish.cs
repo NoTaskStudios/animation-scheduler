@@ -24,14 +24,14 @@ namespace Notask.AnimationScheduler.Package.Runtime.Helpers
                 return true;
             }
         }
-
+        
         /// <summary>
         /// Creates a new yield-instruction
         /// </summary>
-        /// <param name="animator">The animator to track</param>
-        /// <param name="stateAnimName">The name of the animation</param>
-        /// <param name="layerIndex">The layer the animation is playing on</param>
-        public WaitForAnimationToFinish(Animator animator, string stateAnimName, int layerIndex = 0)
+        /// <param name="animator">The animator reference.</param>
+        /// <param name="stateAnimName">The name of the state of animator, default state value is "Start".</param>
+        /// <param name="layerIndex">The layer in animator where the animation is playing on and default value is 0.</param>
+        public WaitForAnimationToFinish(Animator animator, string stateAnimName = "Start", int layerIndex = 0)
         {
             _animator = animator;
             _layerIndex = layerIndex;
