@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
 {
-    public class PriorityQueue<TElement>
+    public class PriorityQueue<TElement> where TElement : IComparable<TElement>
     {
         private readonly IList<TElement> _heap;
         private readonly IComparer<TElement> _comparer;
@@ -79,7 +79,7 @@ namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
         /// <summary>
         /// Adds the given element to the queue.
         /// </summary>
-        /// <param name="element"></param>
+        /// <param name="element"> element of type IComparable</param>
         public void Enqueue(TElement element)
         {
             _heap.Add(element);
@@ -146,6 +146,11 @@ namespace Notask.AnimationScheduler.Package.Runtime.DataStructure
             RemoveAt(index);
             return true;
         }
+        
+        /// <summary>
+        /// Clears the queue.
+        /// </summary>
+        public void Clear() => _heap.Clear();
 
         /// <summary>
         /// Returns the string representation of the queue.
