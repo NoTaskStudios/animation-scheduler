@@ -7,10 +7,10 @@ namespace Notask.AnimationScheduler.Package.Runtime
     [DisallowMultipleComponent, RequireComponent(typeof(Animator))]
     internal sealed class AnimationTask : AnimationScheduler
     {
-        private Animator _animator;
+        [SerializeField] private Animator _animator;
 
         public AnimationExecutor<Animator> animationExecutor;
-        private void Start() => _animator = GetComponent<Animator>();
+        private void Awake() => _animator = GetComponent<Animator>();
 
         public override void RunSchedule() => StartCoroutine(RunAnim());
 
