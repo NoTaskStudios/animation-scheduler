@@ -1,4 +1,5 @@
 using Notask.AnimationScheduler.Package.Runtime.DataStructure;
+using UnityEngine;
 
 namespace Notask.AnimationScheduler.Package.Runtime
 {
@@ -9,7 +10,11 @@ namespace Notask.AnimationScheduler.Package.Runtime
 
         private bool _isPaused;
 
-        public void AddScheduler(AnimationScheduler scheduler) => _priorityQueue.Enqueue(scheduler);
+        public void AddScheduler(AnimationScheduler scheduler)
+        {
+            _priorityQueue.Enqueue(scheduler);
+            Debug.LogWarning($"add {scheduler.name} in priority queue \n {_priorityQueue}");
+        }
 
         public void RemoveScheduler(AnimationScheduler scheduler) => _priorityQueue.Remove(scheduler);
 
@@ -18,6 +23,7 @@ namespace Notask.AnimationScheduler.Package.Runtime
             if (_priorityQueue.Count == 0 || _isPaused) return;
 
             _current = _priorityQueue.Dequeue();
+            Debug.LogWarning($"play {_current} \n {_priorityQueue}");
             _current.OnAnimationEnd += OnCurrentAnimationEnd;
             _current.RunSchedule();
         }

@@ -8,7 +8,7 @@ namespace Package.Samples.Scripts
     {
         [SerializeField] private List<AnimationScheduler> tasks;
 
-        [SerializeField] private Notask.AnimationScheduler.Package.Runtime.Scheduler scheduler;
+        private readonly Scheduler _scheduler = new();
 
         private void Start()
         {
@@ -17,11 +17,9 @@ namespace Package.Samples.Scripts
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
+            if(Input.GetKeyDown(KeyCode.E))
                 AddTasks(tasks);
-            }
-
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 PlayTasks();
@@ -32,10 +30,10 @@ namespace Package.Samples.Scripts
         {
             foreach (var task in animationSchedulers)
             {
-                scheduler.AddScheduler(task);
+                _scheduler.AddScheduler(task);
             }
         }
 
-        private void PlayTasks() => scheduler.PlayScheduler();
+        private void PlayTasks() => _scheduler.PlayScheduler();
     }
 }
