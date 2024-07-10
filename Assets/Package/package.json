@@ -11,6 +11,13 @@
     "Heap",
     "Priority Queue"
   ],
+  "samples": [
+    {
+      "displayName": "Scheduler Implementation Example",
+      "description": "Contains an example of how to use the Animation Scheduler",
+      "path": "Samples~/SchedulerAnimation"
+    }
+  ],
   "author": {
     "name": "Mikael Cavalcanti da Silva",
     "email": "mikaelmigs2@gmail.com"
