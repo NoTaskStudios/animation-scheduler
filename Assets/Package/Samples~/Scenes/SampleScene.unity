@@ -242,8 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Priority>k__BackingField: 1
-  _animator: {fileID: 0}
-  animationExecutor: {fileID: 0}
+  animationExecutor: {fileID: 11400000, guid: f9a4aee7757efc141b84761e9cfd2a8a, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,8 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Priority>k__BackingField: 0
-  _animator: {fileID: 0}
-  animationExecutor: {fileID: 0}
+  animationExecutor: {fileID: 11400000, guid: f9a4aee7757efc141b84761e9cfd2a8a, type: 2}
 --- !u!1 &1760523030
 GameObject:
   m_ObjectHideFlags: 0
